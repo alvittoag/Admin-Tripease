@@ -40,8 +40,7 @@ const DaftarKA = () => {
   } = useSWR(
     baseUrl(`/admin/train?page=${changePage}&limit=20&search=${searchDebounce}&sort_by=${urutkan}&filter=${saveFilter}
     `),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const infoPaginate = daftarKa?.meta;
@@ -68,7 +67,14 @@ const DaftarKA = () => {
         setModal={setModal}
         urutkan={urutkan}
         setShowFilter={setShowFilter}
-        sort={<SortItemAsc title1="Ascending (A-Z)" title2="Descending (Z-A)" urutkan={urutkan} setUrutkan={setUrutkan} />}
+        sort={
+          <SortItemAsc
+            title1="Ascending (A-Z)"
+            title2="Descending (Z-A)"
+            urutkan={urutkan}
+            setUrutkan={setUrutkan}
+          />
+        }
       />
 
       {daftarKa?.data === null ? (
@@ -76,15 +82,26 @@ const DaftarKA = () => {
       ) : (
         <div className=" mt-8 pt-8  mx-7 shadow-[0_1px_3px_rgb(0,0,0,0.2)] bg-white rounded-t-3xl mb-8">
           <div className="flex justify-between border-b-2 pb-5 px-10">
-            <h1 className="text-[16px] font-[600] text-[#262627]">Nama Kereta Api</h1>
-            <h1 className="text-[16px] font-[600] text-[#262627]">Nomor Kereta Api</h1>
-            <h1 className="mr-[32px] text-[16px] font-[600] text-[#262627]">Status keaktifan</h1>
+            <h1 className="text-[16px] font-[600] text-[#262627]">
+              Nama Kereta Api
+            </h1>
+            <h1 className="text-[16px] font-[600] text-[#262627]">
+              Nomor Kereta Api
+            </h1>
+            <h1 className="mr-[32px] text-[16px] font-[600] text-[#262627]">
+              Status keaktifan
+            </h1>
           </div>
 
           {daftarKa?.data?.map((ka, index) => (
             <TableDaftarKa key={ka.train_id} data={ka} index={index} />
           ))}
-          <Pagination changePage={changePage} setChangePage={setChangePage} isLoading={isLoading} infoPaginate={infoPaginate} />
+          <Pagination
+            changePage={changePage}
+            setChangePage={setChangePage}
+            isLoading={isLoading}
+            infoPaginate={infoPaginate}
+          />
         </div>
       )}
 
@@ -95,7 +112,9 @@ const DaftarKA = () => {
           setModal={setModal}
           handle={handleAdd}
           title={"Tambahkan Data Kereta Api"}
-          desc={"Anda akan menambahkan data kereta api baru. Apakah Anda yakin ingin melanjutkan?"}
+          desc={
+            "Anda akan menambahkan data kereta api baru. Apakah Anda yakin ingin melanjutkan?"
+          }
           bg={"bg-[#0080FF]"}
           cancel={"Batal"}
           confirm={"Tambahkan"}
@@ -108,7 +127,9 @@ const DaftarKA = () => {
           setFilter={setFilter}
           setShowFilter={setShowFilter}
           setSaveFilter={setSaveFilter}
-          contentFilter={<FilterItemKeaktifan filter={filter} setFilter={setFilter} />}
+          contentFilter={
+            <FilterItemKeaktifan filter={filter} setFilter={setFilter} />
+          }
         />
       )}
     </div>

@@ -19,9 +19,7 @@ const Dashboard = () => {
     data: dataDashboard,
     isLoading,
     error,
-  } = useSWR(baseUrl(`/admin/dashboard`), fetcherGet, {
-    refreshInterval: 1000,
-  });
+  } = useSWR(baseUrl(`/admin/dashboard`), fetcherGet);
 
   if (error) {
     return <ErrorPages />;

@@ -39,8 +39,7 @@ const DaftarStasiun = () => {
     baseUrl(
       `/admin/station?page=${changePage}&limit=20&search=${searchDebounce}&sort_by=${urutkan}`
     ),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const infoPaginate = dataStations?.meta;

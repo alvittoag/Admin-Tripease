@@ -38,8 +38,7 @@ const PesananKA = () => {
     baseUrl(
       `/admin/order/ticket?limit=20&page=${changePage}&search=${searchDebounce}&date_start=${startDate}&date_end=${endDate}&order_by=${urutkan}&filter=${saveFilter}`
     ),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const infoPaginate = daftarPesanan?.meta;

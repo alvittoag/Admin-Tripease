@@ -45,8 +45,7 @@ const DaftarTiket = () => {
 
   const { data: daftarGerbong } = useSWR(
     baseUrl(`/public/train-carriage?limit=9999`),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const manimpulateData = daftarTicket?.data?.map((data) => ({
@@ -57,6 +56,8 @@ const DaftarTiket = () => {
   }));
 
   const infoPaginate = daftarTicket?.meta;
+
+  console.log(error);
 
   if (error) {
     return <ErrorPages />;

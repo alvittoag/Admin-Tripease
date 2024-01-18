@@ -41,8 +41,7 @@ const PesananHotel = () => {
     baseUrl(
       `/admin/order/hotel?page=${changePage}&limit=20&search=${searchDebounce}&date_start=${startDate}&date_end=${endDate}&order_by=${urutkan}&filter=${saveFilter}&rating_class=${saveFilterClass}`
     ),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const infoPaginate = daftarHotel?.meta;

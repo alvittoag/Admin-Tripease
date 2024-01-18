@@ -40,8 +40,7 @@ const DaftarPengguna = () => {
     baseUrl(
       `/admin/user?sort_by=${urutkan}&search=${searchDebounce}&filter=${saveFilter}&page=${changePage}&limit=20`
     ),
-    fetcherGet,
-    { refreshInterval: 1000 }
+    fetcherGet
   );
 
   const infoPaginate = daftarPengguna?.meta;
